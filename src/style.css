@@ -1,0 +1,32 @@
+body{
+    margin:0;
+    padding:0;
+}
+.content{
+    display:grid;
+    grid-template-columns:20% 80%;
+    height:100vh;
+}
+.panel{
+    background-color: rgb(251, 153, 153);
+}
+.panelTitle{
+    font-size: 3.5rem;
+    font-weight: bolder;
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:blanchedalmond;
+    text-decoration:underline;
+}
+.main {
+    background-color: rgb(253, 241, 226);
+    font-family: cursive;
+    font-size: 2.5rem;  
+    color: rgba(237, 82, 82, 0.8);
+    font-style: italic;
+    padding-top: 1.25rem;  
+    text-align: center; 
+    text-shadow:
+        0.125rem 0.125rem 0.2rem rgba(0,0,0,0.3),
+       -0.125rem -0.125rem 0.2rem rgba(255,255,255,0.6);
+}

@@ -1,1 +1,2 @@
-console.log("yay, what to do?")
+import "./style.css"
+import "./ui.js"
