@@ -2,6 +2,8 @@ import {projects} from "./createProject.js"
 import {divform} from "./createProjectform.js"
 import {divTDF} from "./createToDoForm.js"
 import { setCurrentProject } from "./createToDoForm.js";
+import { deletePro } from "./deletebtn.js";
+import { deleteToDo } from "./deletebtn.js";
 
 let body=document.querySelector('body');
 let content=document.createElement('div');
@@ -41,6 +43,7 @@ export function renderProjects() {
         let divP=document.createElement('div');
         divP.classList.add('divP');
         let divPT=document.createElement('div');
+        divPT.classList.add('divPT');
         let pName = document.createElement('h5');
         pName.textContent = element.name;
         pName.addEventListener('click', ()=>{
@@ -105,15 +108,40 @@ export function renderProjects() {
             divTDF.classList.remove('hidden');
 
         });
+
+        let delTDB=document.createElement('button');
+        delTDB.textContent='D';
+        delTDB.type='btn';
+        delTDB.classList.add('addTDB');
+        delTDB.addEventListener('click', ()=>{
+            main.innerHTML='';
+            deletePro(element);
+
+        })
+
         
 
-        divP.append(pName, addTDB);
+        divP.append(pName, addTDB, delTDB);
 
         element.todos.forEach(todo => {
+            let toDiv=document.createElement('div');
+            toDiv.classList.add('toDiv');
             let todoP = document.createElement("h6");
             todoP.textContent = todo.title + " " + todo.dueDate;
             todoP.classList.add('todoP', 'clickable');
-            divPT.appendChild(todoP);
+
+            let delTDB=document.createElement('button');
+            delTDB.textContent='D';
+            delTDB.type='btn';
+            delTDB.classList.add('addTDB');
+            delTDB.addEventListener('click', ()=>{
+            main.innerHTML='';
+            deleteToDo(element, todo);
+           
+        })
+        toDiv.append(todoP, delTDB);
+
+            divPT.append(toDiv);
         });
         divPC.append(divP, divPT);
 
