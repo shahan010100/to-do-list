@@ -30,6 +30,8 @@ projectForm.addEventListener("submit", (e)=>{
  let tC=inputP.value;
  new NewProject(tC);
  inputP.value="";
+ localStorage.clear();
+ localStorage.setItem('projects', JSON.stringify(projects));
  divform.classList.add('hidden');
  renderProjects();
 });

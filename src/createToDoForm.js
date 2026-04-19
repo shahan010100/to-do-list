@@ -1,4 +1,5 @@
 import { renderProjects } from "./ui.js";
+import { projects } from "./createProject.js";
 let currPro;
 export function setCurrentProject(project)
 {
@@ -75,7 +76,9 @@ formTD.addEventListener('submit', (e)=>{
     let duedate=dueD.value;
     let priority=priorityTD.value;
     currPro.addToDo(title, descrip, duedate, priority);
-
+    localStorage.clear();
+    localStorage.setItem('projects', JSON.stringify(projects));
+    
     divTDF.classList.add('hidden');
     renderProjects();
     formTD.reset();
